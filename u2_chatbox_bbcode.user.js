@@ -12,6 +12,7 @@
 // @icon         https://u2.dmhy.org/favicon.ico
 // @supportURL   https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @homepageURL  https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
+// @license      MIT
 
 // ==/UserScript==
 
