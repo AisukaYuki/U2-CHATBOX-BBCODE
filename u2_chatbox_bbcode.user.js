@@ -2,7 +2,7 @@
 // @name         U2聊天框添加BBCODE按钮
 // @namespace    https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @version      0.0.1
-// @description  U2聊天框添加BBCODE按钮
+// @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/index.php*
 // @match        *://u2.dmhy.org/torrents.php*
