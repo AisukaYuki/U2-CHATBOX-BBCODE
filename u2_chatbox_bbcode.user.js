@@ -12,6 +12,10 @@
 
 //初版测试没有实时预览，后续再完善
 
+//GITHUB：https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
+
+//raw：https://github.com/AisukaYuki/U2-CHATBOX-BBCODE/raw/main/u2_chatbox_bbcode.user.js
+
 (function () {
     'use strict';
     var bb_tag = $('[name="shbox"] > div');
