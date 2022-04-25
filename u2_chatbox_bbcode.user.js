@@ -15,7 +15,6 @@
 // @icon         https://u2.dmhy.org/favicon.ico
 // @supportURL   https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @homepageURL  https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
-// @require      https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js
 // @license      MIT
 
 // ==/UserScript==
