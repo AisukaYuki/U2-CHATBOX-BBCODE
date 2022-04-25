@@ -6,6 +6,7 @@
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/
 // @match        *://u2.dmhy.org/index.php*
+// @match        *://u2.dmhy.org/details.php*
 // @match        *://u2.dmhy.org/torrents.php*
 // @match        *://u2.dmhy.org/shoutwindow.php*
 // @match        *://u2.dmhy.org/userdetails.php*
