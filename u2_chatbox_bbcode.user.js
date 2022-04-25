@@ -66,7 +66,7 @@
                 text = '[color=red][/color]';
                 break;
             case ('size'):
-                text = '[size=][/size]';
+                text = '[size=1][/size]';
                 break;
             case ('url'):
                 text = '[url=][/url]';
@@ -78,13 +78,15 @@
                 text = '[code][/code]';
                 break;
             case ('spoiler'):
-                text = '[spoiler=""][/spoiler]';
+                text = '[spoiler="剧透"][/spoiler]';
                 break;
             default:
                 text = '';
                 break;
         }
+        
         //面向百度编程（wwww
+        
         var text_pos = text.indexOf("/");
         var move_pos = text_pos - 1;
         (function($) {
@@ -113,7 +115,7 @@
                 }
             })
         })(jQuery);
-
+        
         //面向百度编程（wwww
 
         $("#shbox_text").insertAtCaret(text);
