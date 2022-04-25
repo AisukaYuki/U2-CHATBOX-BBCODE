@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         U2聊天框添加BBCODE按钮
 // @namespace    https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
-// @version      0.0.2
+// @version      0.0.3
 // @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/
@@ -15,6 +15,7 @@
 // @icon         https://u2.dmhy.org/favicon.ico
 // @supportURL   https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @homepageURL  https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
+// @require      https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js
 // @license      MIT
 
 // ==/UserScript==
@@ -34,8 +35,10 @@
     btn_list += btn_pre + '[i]这是斜体。[/i]' + btn_min + 'i' + btn_aft + '斜体' + btn_fin;
     btn_list += btn_pre + '[u]这是下划线。[/u]' + btn_min + 'u' + btn_aft + '下划' + btn_fin;
     btn_list += btn_pre + '[s]这是删除线。[/s]' + btn_min + 's' + btn_aft + '删除' + btn_fin;
-    btn_list += btn_pre + '[color=red/#RGB]默认红色。[/color]' + btn_min + 'color' + btn_aft + '颜色' + btn_fin;
-    btn_list += btn_pre + '[size=4]这是4号字的文字。[/size]' + btn_min + 'size' + btn_aft + '大小' + btn_fin;
+    btn_list += '<a><addr title="选择后点击插入"> <b style="cursor: default;">颜色:</b><input value="#ff0000" class="color_s" id="color_s" type="color"></a>';
+    btn_list += btn_pre + '[color=red/#RGB]这是红色[/color]' + btn_min + 'color' + btn_aft + '插入' + btn_fin;
+    btn_list += '<a><addr title="选择后点击插入"> <b style="cursor: default;">大小:</b><select id="text_s"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></a>';
+    btn_list += btn_pre + '[size=4]这是4号字的文字。[/size]' + btn_min + 'size' + btn_aft + '插入' + btn_fin;
     btn_list += btn_pre + '[url=链接]文本[/url]' + btn_min + 'url' + btn_aft + '链接' + btn_fin;
     btn_list += btn_pre + '[img]图片链接[/img]' + btn_min + 'img' + btn_aft + '图片' + btn_fin;
     btn_list += btn_pre + '[code]这是代码文本。[/code]' + btn_min + 'code' + btn_aft + '代码' + btn_fin;
@@ -44,7 +47,15 @@
 
     bb_tag.prepend(btn_list + '<br>');
 
+    var color_val = $("#color_s").change(function(){
+        color_val= $("#color_s").val();
+    });
+    color_val = '#ff0000';
 
+    var text_val = $("#text_s").change(function(){
+        text_val= $("#text_s").val();
+    });
+    text_val = '1';
 
     $(".bbcode").click(function() {
         var btn_click = $(this).attr("id");
@@ -63,10 +74,10 @@
                 text = '[s][/s]';
                 break;
             case ('color'):
-                text = '[color=red][/color]';
+                text = '[color=' + color_val + '][/color]';
                 break;
             case ('size'):
-                text = '[size=1][/size]';
+                text = '[size=' + text_val + '][/size]';
                 break;
             case ('url'):
                 text = '[url=][/url]';
@@ -126,6 +137,14 @@
         "position": "relative",
         "margin-top": "2px",
         "margin-right": "1px",
+        "padding": "1px"
+    });
+    $(".color_s").css({
+        "display": "inline-block",
+        "position": "relative",
+        "margin-right": "1px",
+        "height": "22px",
+        "width": "30px",
         "padding": "1px"
     });
     $(".eg").css({
