@@ -46,15 +46,15 @@
 
     bb_tag.prepend(btn_list + '<br>');
 
-    var color_val = $("#color_s").change(function(){
+    var color_val = '#ff0000';
+    $("#color_s").change(function(){
         color_val= $("#color_s").val();
     });
-    color_val = '#ff0000';
 
-    var text_val = $("#text_s").change(function(){
+    var text_val = '1';
+    $("#text_s").change(function(){
         text_val= $("#text_s").val();
     });
-    text_val = '1';
 
     $(".bbcode").click(function() {
         var btn_click = $(this).attr("id");
