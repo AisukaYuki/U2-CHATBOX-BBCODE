@@ -94,9 +94,9 @@
                 text = '';
                 break;
         }
-        
+
         //面向百度编程（wwww
-        
+
         var text_pos = text.indexOf("/");
         var move_pos = text_pos - 1;
         (function($) {
@@ -125,7 +125,7 @@
                 }
             })
         })(jQuery);
-        
+
         //面向百度编程（wwww
 
         $("#shbox_text").insertAtCaret(text);
