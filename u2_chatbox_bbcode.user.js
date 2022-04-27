@@ -4,7 +4,7 @@
 // @version      0.0.3
 // @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
-// @match        *://u2.dmhy.org/
+// @match        *://u2.dmhy.org/*
 // @match        *://u2.dmhy.org/index.php*
 // @match        *://u2.dmhy.org/details.php*
 // @match        *://u2.dmhy.org/torrents.php*
