@@ -1,17 +1,15 @@
 // ==UserScript==
 // @name         U2聊天框添加BBCODE按钮
 // @namespace    https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
-// @version      0.0.3
+// @version      0.0.3.3
 // @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/*
-// @match        *://u2.dmhy.org/index.php*
-// @match        *://u2.dmhy.org/details.php*
-// @match        *://u2.dmhy.org/torrents.php*
-// @match        *://u2.dmhy.org/showup.php*
-// @match        *://u2.dmhy.org/shoutwindow.php*
-// @match        *://u2.dmhy.org/userdetails.php*
-// @match        *://u2.dmhy.org/tags.php*
+// @exclude      *://u2.dmhy.org/forums.php*
+// @exclude      *://u2.dmhy.org/addoffer.php*
+// @exclude      *://u2.dmhy.org/upload.php*
+// @exclude      *://u2.dmhy.org/contactstaff.php*
+// @exclude      *://u2.dmhy.org/edit.php*
 // @icon         https://u2.dmhy.org/favicon.ico
 // @supportURL   https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @homepageURL  https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
