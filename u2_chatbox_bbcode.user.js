@@ -10,6 +10,7 @@
 // @exclude      *://u2.dmhy.org/upload.php*
 // @exclude      *://u2.dmhy.org/contactstaff.php*
 // @exclude      *://u2.dmhy.org/edit.php*
+// @exclude      *://u2.dmhy.org/comment.php*
 // @icon         https://u2.dmhy.org/favicon.ico
 // @supportURL   https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
 // @homepageURL  https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
