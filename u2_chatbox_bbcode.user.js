@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         U2聊天框添加BBCODE按钮
 // @namespace    https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
-// @version      0.0.3.3
+// @version      0.0.3.4
 // @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/*
