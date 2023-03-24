@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         U2聊天框添加BBCODE按钮
 // @namespace    https://github.com/AisukaYuki/U2-CHATBOX-BBCODE
-// @version      0.0.3.5
+// @version      0.0.3.6
 // @description  聊天框添加BBCODE快捷插入按钮
 // @author       アイスカユキ
 // @match        *://u2.dmhy.org/*
@@ -38,63 +38,16 @@
     btn_list += btn_pre + '[color=red/#RGB]这是红色[/color]' + btn_min + 'color' + btn_aft + '插入' + btn_fin;
     btn_list += '<a><addr title="选择后点击插入"> <b style="cursor: default;">大小:</b><select id="text_s"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></a>';
     btn_list += btn_pre + '[size=4]这是4号字的文字。[/size]' + btn_min + 'size' + btn_aft + '插入' + btn_fin;
-    btn_list += btn_pre + '[url=链接]文本[/url]' + btn_min + 'url' + btn_aft + '链接' + btn_fin;
+    btn_list += btn_pre + '[url=链接]文本[/url]' + btn_min + 'url' + btn_aft + '链接"><div class="_box" id="url_box"><div>地址：<input id="url_addr" type="text"></div><div>描述：<input id="url_dis" type="text"></div><input id="url_send" type="button" value="插入"></div></a>';
     btn_list += btn_pre + '[img]图片链接[/img]' + btn_min + 'img' + btn_aft + '图片' + btn_fin;
     btn_list += btn_pre + '[code]这是代码文本。[/code]' + btn_min + 'code' + btn_aft + '代码' + btn_fin;
-    btn_list += btn_pre + "[spoiler='剧透是不可能的！']真的！[/spoiler]" + btn_min + 'spoiler' + btn_aft + '剧透' + btn_fin;
+    btn_list += btn_pre + "[spoiler='剧透是不可能的！']真的！[/spoiler]" + btn_min + 'spoiler' + btn_aft + '剧透"><div class="_box" id="sp_box"><div>标题：<input id="sp_text" type="text"></div><div>内容：<input id="sp_dis" type="text"></div><input id="sp_send" type="button" value="插入"></div></a>';
     btn_list += '<a href="tags.php"><addr title="更多BBCODE"' + btn_min + '' + btn_aft + '更多' + btn_fin;
 
     bb_tag.prepend(btn_list + '<br>');
 
-    var color_val = '#ff0000';
-    $("#color_s").change(function(){
-        color_val= $("#color_s").val();
-    });
-
-    var text_val = '1';
-    $("#text_s").change(function(){
-        text_val= $("#text_s").val();
-    });
-
-    $(".bbcode").click(function() {
-        var btn_click = $(this).attr("id");
-        var text;
-        switch (btn_click) {
-            case ('b'):
-                text = '[b][/b]';
-                break;
-            case ('i'):
-                text = '[i][/i]';
-                break;
-            case ('u'):
-                text = '[u][/u]';
-                break;
-            case ('s'):
-                text = '[s][/s]';
-                break;
-            case ('color'):
-                text = '[color=' + color_val + '][/color]';
-                break;
-            case ('size'):
-                text = '[size=' + text_val + '][/size]';
-                break;
-            case ('url'):
-                text = '[url=][/url]';
-                break;
-            case ('img'):
-                text = '[img][/img]';
-                break;
-            case ('code'):
-                text = '[code][/code]';
-                break;
-            case ('spoiler'):
-                text = '[spoiler="剧透"][/spoiler]';
-                break;
-            default:
-                text = '';
-                break;
-        }
-
+    var text;
+    function box_focus(){
         //面向百度编程（wwww
 
         var text_pos = text.indexOf("/");
@@ -127,7 +80,82 @@
         })(jQuery);
 
         //面向百度编程（wwww
+    };
 
+    var color_val = '#ff0000';
+    $("#color_s").change(function(){
+        color_val= $("#color_s").val();
+    });
+
+    var text_val = '1';
+    $("#text_s").change(function(){
+        text_val= $("#text_s").val();
+    });
+
+    function url_on(){
+        $("#url_box").css("display","inline-block");
+    };
+
+    $("#url_send").click(function(){
+
+        text = '[url='+ $("#url_addr").val() + ']' + $("#url_dis").val() + '[/url]';
+        box_focus();
+        $("#shbox_text").insertAtCaret(text);
+        $("#url_dis").val("");
+        $("#url_addr").val("");
+        $("#url_box").css("display","none");
+    });
+
+    function sp_on(){
+        $("#sp_box").css("display","inline-block");
+    };
+
+    $("#sp_send").click(function(){
+
+        text = '[spoiler='+ $("#sp_text").val() + ']' + $("#sp_dis").val() + '[/spoiler]';
+        box_focus();
+        $("#shbox_text").insertAtCaret(text);
+        $("#sp_dis").val("");
+        $("#sp_text").val("");
+        $("#sp_box").css("display","none");
+    });
+    $(".bbcode").click(function() {
+        var btn_click = $(this).attr("id");
+        switch (btn_click) {
+            case ('b'):
+                text = '[b][/b]';
+                break;
+            case ('i'):
+                text = '[i][/i]';
+                break;
+            case ('u'):
+                text = '[u][/u]';
+                break;
+            case ('s'):
+                text = '[s][/s]';
+                break;
+            case ('color'):
+                text = '[color=' + color_val + '][/color]';
+                break;
+            case ('size'):
+                text = '[size=' + text_val + '][/size]';
+                break;
+            case ('url'):
+                url_on();
+                return;
+            case ('img'):
+                text = '[img][/img]';
+                break;
+            case ('code'):
+                text = '[code][/code]';
+                break;
+            case ('spoiler'):
+                sp_on();
+                return;
+            default:
+                break;
+        }
+        box_focus();
         $("#shbox_text").insertAtCaret(text);
     })
 
@@ -152,5 +180,16 @@
         "bottom": "-15px",
         "left": "100px"
     });
-
+    $("._box").css({
+        "display": "none",
+        "position": "absolute",
+        "margin-left": "-108px",
+        "margin-top": "25px",
+        "padding": "2px",
+        "border": "2px",
+        "border-radius": "4px",
+        "border-style": "solid",
+        "border-color": "#5b6f83",
+        "background-color": "#6e89a0"
+    });
 })();
